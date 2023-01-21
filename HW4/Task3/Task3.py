@@ -20,15 +20,21 @@ def nonrepeat_elements(any_list):
         if el not in list_of_els:
             list_of_els.append(el)
     count_els = []
-    for i in range(len(list_of_els)):
+    # for i in range(len(list_of_els)):
+    #     count_els.append(0)
+    #     for j in range(len(any_list)):
+    #         if any_list[j] == list_of_els[i]:
+    for i, elem_i in enumerate(list_of_els):
         count_els.append(0)
-        for j in range(len(any_list)):
-            if any_list[j] == list_of_els[i]:
+        for j, elem_j in enumerate(any_list):
+            if elem_j == elem_i:
                 count_els[i] += 1
-    nonrep_els = []
-    for i in range(len(count_els)):
-        if count_els[i] == 1:
-            nonrep_els.append(list_of_els[i])
+    # nonrep_els = []
+    # for i in range(len(count_els)):
+    #     if count_els[i] == 1:
+    #         nonrep_els.append(list_of_els[i])
+    nonrep_els = list(filter(lambda x: x[0] == 1, list(zip(count_els, list_of_els))))
+
     return nonrep_els
 
 def main():
